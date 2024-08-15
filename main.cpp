@@ -65,7 +65,7 @@ void send_arp_infection(pcap_t *handle, const char *interface, const char *sende
     arp_hdr->ea_hdr.ar_pro = htons(ETHERTYPE_IP);
     arp_hdr->ea_hdr.ar_hln = 6;
     arp_hdr->ea_hdr.ar_pln = 4;
-    arp_hdr->ea_hdr.ar_op = htons(ARPOP_REPLY); // ARP 응답으로 위조
+    arp_hdr->ea_hdr.ar_op = htons(ARPOP_REPLY); // ARP 응답으로 설정
 
     memcpy(arp_hdr->arp_sha, spoofed_mac, 6); // 스푸핑된 MAC 주소
     inet_pton(AF_INET, target_ip, arp_hdr->arp_spa); // 스푸핑된 IP 주소
